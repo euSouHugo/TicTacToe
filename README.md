@@ -1,6 +1,7 @@
 # TicTacToe
-    This Tic Tac Toe game made as a software engineering course assignment.
-    In this task, I was to prove my skills in version control tools, such as 
-    git and or github; therefore, the complexity of the this project was not
-    an interest point itself, as the scope of the assignment revolves towards
-    my capability to better utilize, manage and organize the code in said tools.  
+    This Tic Tac Toe game is currently under development as a software engineering
+    course assignment.
+    The primary focus of this task is to demonstrate proficiency in version control 
+    tools, such as git and github. Therefore, the complexity of this project was not
+    an interest point itself, as the scope of the assignment revolves towardsmy ca-
+    pability to better utilize, manage and organize the code whithin these tools.  
