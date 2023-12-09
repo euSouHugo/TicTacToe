@@ -3,8 +3,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
-// versão 0.1
 
+    static List<Integer> listaMarcados = new ArrayList<>(); // lista que usarei para saber as posições.
+    static int pos_comp;
+    static int pos_player;
     public static void main(String[] args) {
         char[][] tabuleiro = {
                 {' ', '|', ' ', '|', ' ' },
@@ -13,8 +15,6 @@ public class Game {
                 {'-', '+', '-', '+', '-' },
                 {' ', '|', ' ', '|', ' ' }
         };
-
-        List<Integer> listaMarcados = new ArrayList<>(); // lista que usarei para saber as posições.
 
         imprimirTabuleiro(tabuleiro);
 
@@ -28,16 +28,18 @@ public class Game {
 
             System.out.print("Digite uma posição: ");
             Scanner scanner = new Scanner(System.in);
-            int pos = scanner.nextInt();
-            botarMarca(tabuleiro,pos,player);
+            pos_player = scanner.nextInt();
+            foiMarcada(pos_player);
+            botarMarca(tabuleiro,pos_player,player,foiMarcada(pos_player));
             imprimirTabuleiro(tabuleiro);
 
             // vez do computador
 
             System.out.print("Digite uma posição: ");
             Scanner scanner_comp = new Scanner(System.in);
-            int pos_comp = scanner.nextInt();
-            botarMarca(tabuleiro,pos_comp,computador);
+            pos_comp = scanner.nextInt();
+            foiMarcada(pos_comp);
+            botarMarca(tabuleiro,pos_comp,computador,foiMarcada(pos_comp));
             imprimirTabuleiro(tabuleiro);
 
 
@@ -52,15 +54,25 @@ public class Game {
             System.out.println();
         }
     }
-    public static void botarMarca(char[][] tabuleiro, int pos, String jogador){
+    public static boolean foiMarcada(int pos){
+        if (listaMarcados.contains(pos)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public static void botarMarca(char[][] tabuleiro, int pos, String jogador, boolean foiMarcada){
 
         // utilizar como parâmetro uma função que retorna true se a posição já tenha sido marcada
 
         char z = ' ';
         if (jogador.equals("player")){
             z = 'X';
+            listaMarcados.add(pos_player);
         }else if (jogador.equals("computador")){
             z = 'O';
+            listaMarcados.add(pos_comp);
         }
         switch (pos){
             case 1:
